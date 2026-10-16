@@ -86,7 +86,7 @@ jobs:
         with:
           context: llm-multiroute
           load: true
-          tags: darryl1975/llm-multiroute:scan
+          tags: dplgcv/llm-multiroute:scan
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -95,7 +95,7 @@ jobs:
         env:
           TRIVY_DISABLE_VEX_NOTICE: "true"
         with:
-          image-ref: darryl1975/llm-multiroute:scan
+          image-ref: dplgcv/llm-multiroute:scan
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
@@ -105,7 +105,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
-          username: darryl1975
+          username: dplgcv
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker image
